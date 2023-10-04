@@ -20,7 +20,7 @@ class UpdateController
         $attribute = $request->input('__attribute_name__');
         $field = $resource->availableFields($request)->firstWhere('attribute', $attribute);
 
-        $request->toSelectedResourceQuery()->each(function (Model $model) use ($resource, $field, $request) {
+        $request->toSelectedResourceQuery()->each(function (Model $model) use ($resource, $field, $request): void {
 
             $resource = $request->newResourceWith($model);
             $resource->authorizeToUpdate($request);
@@ -31,7 +31,7 @@ class UpdateController
             [ $model, $callbacks ] = $mockResource::fillForUpdate($request, $model);
 
             if ($model->save() === false) {
-                throw new ResourceSaveCancelledException;
+                throw new ResourceSaveCancelledException();
             }
 
             foreach ($callbacks as $callback) {

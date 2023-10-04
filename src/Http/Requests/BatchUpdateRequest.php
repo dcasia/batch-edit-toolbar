@@ -13,4 +13,3 @@ class BatchUpdateRequest extends ActionRequest
         return true;
     }
 }
-

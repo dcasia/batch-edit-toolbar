@@ -26,7 +26,7 @@ class BatchEditToolbarServiceProvider extends ServiceProvider
             Nova::script('batch-edit-toolbar', __DIR__ . '/../dist/js/tool.js');
         });
 
-        $this->app->terminating(function () {
+        $this->app->terminating(function (): void {
             SingleFieldResource::$field = null;
         });
     }
