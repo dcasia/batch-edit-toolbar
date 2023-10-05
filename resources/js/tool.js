@@ -12,12 +12,17 @@ Nova.booting(app => {
                 container.id = 'batch-edit-toolbar'
 
                 const element = document.querySelector('[dusk$="-index-component"] div.h-9.ml-auto.flex.items-center.pr-2.md\\:pr-3')
-                element.insertAdjacentElement('beforebegin', container)
 
-                const vnode = createVNode(Toolbar, { toolbar: this })
-                vnode.appContext = app._context
+                if (element) {
 
-                render(vnode, container)
+                    element.insertAdjacentElement('beforebegin', container)
+
+                    const vnode = createVNode(Toolbar, { toolbar: this })
+                    vnode.appContext = app._context
+
+                    render(vnode, container)
+
+                }
 
             }
 

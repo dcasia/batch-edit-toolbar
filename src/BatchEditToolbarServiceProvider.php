@@ -18,8 +18,14 @@ class BatchEditToolbarServiceProvider extends ServiceProvider
             $this->routes();
         });
 
-        Field::macro('batchEditable', function (callable $value) {
+        Field::macro('batchEditable', function (callable|string $value) {
+
+            if (is_string($value)) {
+                $value = fn () => [ 'icon' => $value ];
+            }
+
             return $this->withMeta([ 'batchEditable' => value($value) ]);
+
         });
 
         Nova::serving(function (ServingNova $event): void {
