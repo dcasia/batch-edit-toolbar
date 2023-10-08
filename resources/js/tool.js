@@ -11,10 +11,20 @@ Nova.booting(app => {
                 const container = document.createElement('div')
                 container.id = 'batch-edit-toolbar'
 
-                const targetIndex = '[dusk$="-index-component"] div.h-9.ml-auto.flex.items-center.pr-2.md\\:pr-3'
-                const targetLens = '[dusk$="-lens-component"] div.h-9.ml-auto.flex.items-center.pr-2.md\\:pr-3'
+                const relationship = this.actionQueryString?.viaRelationship
+                const resourceName = this.resourceName
 
-                const element = document.querySelector(this.lens ? targetLens : targetIndex)
+                let target
+
+                if (relationship) {
+                    target = `[dusk="${ resourceName }-index-component"][data-relationship="${ relationship }"] div.h-9.ml-auto.flex.items-center.pr-2.md\\:pr-3`
+                } else if (this.isLensView) {
+                    target = `[dusk="${ resourceName }-lens-component"] div.h-9.ml-auto.flex.items-center.pr-2.md\\:pr-3`
+                } else {
+                    target = `[dusk="${ resourceName }-index-component"] div.h-9.ml-auto.flex.items-center.pr-2.md\\:pr-3`
+                }
+
+                const element = document.querySelector(target)
 
                 if (element) {
 
