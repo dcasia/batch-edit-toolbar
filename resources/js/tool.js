@@ -11,7 +11,10 @@ Nova.booting(app => {
                 const container = document.createElement('div')
                 container.id = 'batch-edit-toolbar'
 
-                const element = document.querySelector('[dusk$="-index-component"] div.h-9.ml-auto.flex.items-center.pr-2.md\\:pr-3')
+                const targetIndex = '[dusk$="-index-component"] div.h-9.ml-auto.flex.items-center.pr-2.md\\:pr-3'
+                const targetLens = '[dusk$="-lens-component"] div.h-9.ml-auto.flex.items-center.pr-2.md\\:pr-3'
+
+                const element = document.querySelector(this.lens ? targetLens : targetIndex)
 
                 if (element) {
 
