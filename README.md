@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/digital-creative/batch-edit-toolbar)](https://packagist.org/packages/digital-creative/batch-edit-toolbar)
 [![Total Downloads](https://img.shields.io/packagist/dt/digital-creative/batch-edit-toolbar)](https://packagist.org/packages/digital-creative/batch-edit-toolbar)
-[![License](https://img.shields.io/packagist/l/digital-creative/batch-edit-toolbar)](https://github.com/dcasia/batch-edit-toolbar/blob/master/LICENSE)
+[![License](https://img.shields.io/packagist/l/digital-creative/batch-edit-toolbar)](https://github.com/dcasia/batch-edit-toolbar/blob/main/LICENSE)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/dcasia/batch-edit-toolbar/main/screenshots/dark.png">
