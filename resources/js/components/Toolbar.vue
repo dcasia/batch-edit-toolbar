@@ -15,23 +15,19 @@
 
         <div v-for="field of actions">
 
-            <Dropdown
+            <button
                 v-tooltip="field.batchEditable.tooltip || field.batchEditable.title || __(`Update :name`, { name: field.name })"
-                :handle-internal-clicks="false"
-                class="flex h-9 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg focus:ring-2"
-                :trigger-override-function="() => openModal(field)">
+                @click.stop="() => openModal(field)"
+                type="button"
+                class="hover:text-primary-500 inline-flex items-center justify-center w-9 h-9 focus:outline-none focus:ring ring-primary-200 dark:ring-gray-600 rounded-lg">
 
-                <div class="toolbar-button px-2">
+                <template v-if="field.batchEditable.icon.startsWith('<svg')">
+                    <div v-html="field.batchEditable.icon"/>
+                </template>
 
-                    <template v-if="field.batchEditable.icon.startsWith('<svg')">
-                        <div v-html="field.batchEditable.icon"/>
-                    </template>
+                <Icon v-else :type="field.batchEditable.icon"/>
 
-                    <Icon v-else :type="field.batchEditable.icon"/>
-
-                </div>
-
-            </Dropdown>
+            </button>
 
         </div>
 
